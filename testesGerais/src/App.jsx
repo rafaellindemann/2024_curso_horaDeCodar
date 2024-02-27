@@ -2,17 +2,18 @@ import './App.css'
 
 function App() {
 
-  function tratarClique(e){
-    console.log(e) // envia todo o evento mapeado
-    console.log(e.target); // envia o elemento alvo do clique
-    console.log(e.target.className); // envia a classe (className) do elemento alvo do clique
+  function renderizarUsuario(usuarioLogado){
+    if(usuarioLogado){
+      return <h1>Olá usuário</h1>
+    }else{
+      return <h1>Faça o login</h1>
+    }
+
   }
 
   return (
     <>
-      <button onClick={tratarClique} className='btEvento'>
-        Clica
-      </button>
+      {renderizarUsuario(false)}
     </>
   )
 }
