@@ -1,15 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
 function Data(){
     let contador = 0;
     const [cont, setCont] = useState(0)
 
-    function incrementa(){
-        setCont(cont + 1)
-    }
-    function decrementa(){
+    function incrementaState() {
+        setCont(cont + 1);
+      }
+      
+      useEffect(() => {
+        console.log(cont);
+      }, [cont]);
+
+    function decrementaState(){
         setCont(cont - 1)
+        // console.log(cont);
     }
 
     function incrementaVariavel(){
@@ -31,9 +37,9 @@ function Data(){
 
         </div>
         <p>useState</p>
-        <button onClick={incrementa}>+</button>
+        <button onClick={incrementaState}>+</button>
         {cont}
-        <button onClick={decrementa}>-</button>
+        <button onClick={decrementaState}>-</button>
     </div>
   )
 }
